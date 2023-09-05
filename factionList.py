@@ -55,5 +55,18 @@ class FactionStats:
 
     faction_trait_table_df = pd.DataFrame(faction_trait_table, columns = ['Name', 'Trait Symbol', 'Trait Name','Trait Description'])
 
+class viewFactionContracts:
+    def __init__(self, Authorization):
+
+        agent_header = {
+            'Authorization': 'Bearer '+Authorization
+        }
+        
+        space_trader_agent_contracts_url = "https://api.spacetraders.io/v2/my/contracts"
+
+        space_trader_agent_contracts_data = requests.get(space_trader_agent_contracts_url, headers = agent_header)
+        print(space_trader_agent_contracts_data)
+        print(space_trader_agent_contracts_data.json())
+
     
 
